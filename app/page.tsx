@@ -227,18 +227,21 @@ export default function CASUKRedesign4() {
           <div className="flex items-center justify-between h-18">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="relative">
+              {/* <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-xl">C</span>
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-              </div>
+              </div> */}
               <div>
-                <div className="text-2xl font-bold">
-                  <span className="text-gray-800">CAS</span>
-                  <span className="text-orange-500">UK</span>
-                </div>
-                <div className="text-xs text-gray-500 -mt-1">Community • Culture • Connection</div>
+                {/* <Image
+                  src={"/logo.png"}
+                  alt={`CAS UK Logo`}
+                  width={100}
+                  height={40}
+                  className="object-cover"
+                /> */}
+                <img className="" src="/logo.png" />
               </div>
             </div>
 
@@ -251,11 +254,18 @@ export default function CASUKRedesign4() {
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
               </Link>
+              {/* <Link
+                href="#"
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
+              >
+                Who are we
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
+              </Link> */}
               <Link
                 href="#"
                 className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
               >
-                About
+                About Us
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
               </Link>
               <Link
@@ -269,14 +279,21 @@ export default function CASUKRedesign4() {
                 href="#"
                 className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
               >
-                Events
+                Member
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
               </Link>
               <Link
                 href="#"
                 className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
               >
-                Resources
+                Payment
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
+              >
+                Testimonial
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
               </Link>
               <Link
@@ -291,7 +308,10 @@ export default function CASUKRedesign4() {
             {/* Auth & Actions */}
             <div className="hidden lg:flex items-center space-x-3">
               <Button variant="ghost" size="sm" className="text-gray-600">
-                Login
+                Member Login
+              </Button>
+              <Button variant="ghost" size="sm" className="text-gray-600">
+                Group Admin Login
               </Button>
               <Button
                 size="sm"
@@ -566,16 +586,7 @@ export default function CASUKRedesign4() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">C</span>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">
-                    <span>CAS</span>
-                    <span className="text-orange-400">UK</span>
-                  </div>
-                  <div className="text-xs text-gray-400">Community • Culture • Connection</div>
-                </div>
+                <img className="" src="/logo-no-bg.png" />
               </div>
               <p className="text-gray-400 mb-6">
                 Connecting and supporting Cameroonian communities across the United Kingdom through culture, events, and
