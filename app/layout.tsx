@@ -4,9 +4,9 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Casuk',
+  description: 'Casuk - Connecting and supporting Cameroonian communities across the United Kingdom through culture, events, and resources.',
+  generator: 'casuk',
 }
 
 export default function RootLayout({
