@@ -6,7 +6,23 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Menu, X, ArrowRight, Users, Calendar, MapPin, Phone, Mail, Globe, Heart } from "lucide-react"
+import {
+  Menu,
+  X,
+  ArrowRight,
+  Users,
+  Calendar,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Heart,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Youtube,
+} from "lucide-react"
+import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
@@ -174,6 +190,39 @@ function HeroSlider() {
   )
 }
 
+function NewsletterSignup() {
+  const [email, setEmail] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle newsletter signup
+    console.log("Newsletter signup:", email)
+    setEmail("")
+  }
+
+  return (
+    <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-500 to-red-500 text-white">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-bold mb-3">Stay Connected</h3>
+        <p className="mb-4 text-orange-100">Subscribe to our newsletter for the latest updates and community news.</p>
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:bg-white/30"
+            required
+          />
+          <Button type="submit" className="w-full bg-white text-orange-600 hover:bg-gray-100">
+            Subscribe
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  )
+}
+
 export default function CASUKRedesign4() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -227,20 +276,7 @@ export default function CASUKRedesign4() {
           <div className="flex items-center justify-between h-18">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              {/* <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-xl">C</span>
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-              </div> */}
               <div>
-                {/* <Image
-                  src={"/logo.png"}
-                  alt={`CAS UK Logo`}
-                  width={100}
-                  height={40}
-                  className="object-cover"
-                /> */}
                 <img className="" src="/logo.png" />
               </div>
             </div>
@@ -254,13 +290,6 @@ export default function CASUKRedesign4() {
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
               </Link>
-              {/* <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Who are we
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link> */}
               <Link
                 href="#"
                 className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
@@ -393,16 +422,8 @@ export default function CASUKRedesign4() {
                 </CardContent>
               </Card>
 
-              {/* Call to Action Card */}
-              <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-500 to-red-500 text-white">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3">THINK!!!</h3>
-                  <p className="mb-4 text-orange-100">
-                    Together we build stronger communities and create lasting change.
-                  </p>
-                  <Button className="bg-white text-orange-600 hover:bg-gray-100 w-full">Join Us Today</Button>
-                </CardContent>
-              </Card>
+              {/* Newsletter Signup Card */}
+              <NewsletterSignup />
             </div>
           </div>
         </div>
@@ -592,6 +613,21 @@ export default function CASUKRedesign4() {
                 Connecting and supporting Cameroonian communities across the United Kingdom through culture, events, and
                 shared experiences.
               </p>
+              {/* Social Media Icons */}
+              <div className="flex space-x-4">
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Facebook size={20} />
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Twitter size={20} />
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Linkedin size={20} />
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <Youtube size={20} />
+                </Link>
+              </div>
             </div>
 
             <div>
