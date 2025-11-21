@@ -2,12 +2,14 @@
 
 import type React from "react"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -30,16 +32,27 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`transition-colors font-medium relative group ${
+                    isActive
+                      ? "text-orange-500"
+                      : "text-gray-700 hover:text-orange-500"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-orange-500 transition-all ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </Link>
+              )
+            })}
           </nav>
 
           {/* Auth & Actions */}
@@ -79,16 +92,23 @@ export function Header() {
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t">
           <nav className="container mx-auto px-4 py-6 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block text-gray-700 hover:text-orange-500 font-medium py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block font-medium py-2 px-2 rounded transition-colors ${
+                    isActive
+                      ? "text-orange-500 bg-orange-50 border-l-4 border-orange-500"
+                      : "text-gray-700 hover:text-orange-500 hover:bg-gray-50"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
             <div className="pt-4 border-t space-y-3">
               <Link href="/login" className="block">
                 <Button variant="ghost" className="w-full justify-start">
