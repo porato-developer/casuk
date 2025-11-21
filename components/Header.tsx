@@ -44,12 +44,16 @@ export function Header() {
 
           {/* Auth & Actions */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Button variant="ghost" size="sm" className="text-gray-600">
-              Member Login
-            </Button>
-            <Button variant="ghost" size="sm" className="text-gray-600">
-              Group Admin Login
-            </Button>
+            <Link href="/login">
+              <Button variant="ghost" size="sm" className="text-gray-600">
+                Member Login
+              </Button>
+            </Link>
+            <Link href="/login">
+              <Button variant="ghost" size="sm" className="text-gray-600">
+                Group Admin Login
+              </Button>
+            </Link>
             <Link href="/donate">
               <Button
                 size="sm"
@@ -86,9 +90,11 @@ export function Header() {
               </Link>
             ))}
             <div className="pt-4 border-t space-y-3">
-              <Button variant="ghost" className="w-full justify-start">
-                Login
-              </Button>
+              <Link href="/login" className="block">
+                <Button variant="ghost" className="w-full justify-start">
+                  Login
+                </Button>
+              </Link>
               <Link href="/donate" className="block">
                 <Button className="w-full bg-gradient-to-r from-orange-500 to-red-500">
                   Donate
