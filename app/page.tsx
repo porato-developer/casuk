@@ -6,26 +6,13 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Menu,
-  X,
-  ArrowRight,
-  Users,
-  Calendar,
-  MapPin,
-  Phone,
-  Mail,
-  Globe,
-  Heart,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Youtube,
-} from "lucide-react"
+import { ArrowRight, Users, Calendar, MapPin, Heart, Globe } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
+import { Header } from "@/components/Header"
+import { Footer } from "@/components/Footer"
 function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
@@ -223,9 +210,7 @@ function NewsletterSignup() {
   )
 }
 
-export default function CASUKRedesign4() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
+export default function Home() {
   const upcomingEvents = [
     {
       date: "Dec 15",
@@ -271,124 +256,7 @@ export default function CASUKRedesign4() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-18">
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div>
-                <img className="" src="/logo.png" />
-              </div>
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                About Us
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Groups
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Member
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Payment
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Testimonial
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-700 hover:text-orange-500 transition-colors font-medium relative group"
-              >
-                Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full"></span>
-              </Link>
-            </nav>
-
-            {/* Auth & Actions */}
-            <div className="hidden lg:flex items-center space-x-3">
-              <Button variant="ghost" size="sm" className="text-gray-600">
-                Member Login
-              </Button>
-              <Button variant="ghost" size="sm" className="text-gray-600">
-                Group Admin Login
-              </Button>
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg"
-              >
-                Donate
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2 rounded-lg hover:bg-gray-100" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t">
-            <nav className="container mx-auto px-4 py-6 space-y-4">
-              <Link href="#" className="block text-gray-700 hover:text-orange-500 font-medium py-2">
-                Home
-              </Link>
-              <Link href="#" className="block text-gray-700 hover:text-orange-500 font-medium py-2">
-                About
-              </Link>
-              <Link href="#" className="block text-gray-700 hover:text-orange-500 font-medium py-2">
-                Groups
-              </Link>
-              <Link href="#" className="block text-gray-700 hover:text-orange-500 font-medium py-2">
-                Events
-              </Link>
-              <Link href="#" className="block text-gray-700 hover:text-orange-500 font-medium py-2">
-                Resources
-              </Link>
-              <Link href="#" className="block text-gray-700 hover:text-orange-500 font-medium py-2">
-                Contact
-              </Link>
-              <div className="pt-4 border-t space-y-3">
-                <Button variant="ghost" className="w-full justify-start">
-                  Login
-                </Button>
-                <Button className="w-full bg-gradient-to-r from-orange-500 to-red-500">Donate</Button>
-              </div>
-            </nav>
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="py-12 bg-white">
@@ -602,131 +470,7 @@ export default function CASUKRedesign4() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <img className="" src="/logo-no-bg.png" />
-              </div>
-              <p className="text-gray-400 mb-6">
-                Connecting and supporting Cameroonian communities across the United Kingdom through culture, events, and
-                shared experiences.
-              </p>
-              {/* Social Media Icons */}
-              <div className="flex space-x-4">
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Facebook size={20} />
-                </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Twitter size={20} />
-                </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Linkedin size={20} />
-                </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Youtube size={20} />
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Our Groups
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Membership
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Resources
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-lg mb-4">Get Involved</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Volunteer
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Donate
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Partner With Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Testimonials
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-lg mb-4">Contact Info</h3>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center space-x-3">
-                  <Mail size={16} />
-                  <span>info@cas-uk.org</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone size={16} />
-                  <span>+44 (0) 123 456 789</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin size={16} />
-                  <span>London, United Kingdom</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 mb-4 md:mb-0">&copy; 2024 CAS-UK. All rights reserved.</p>
-            <div className="flex space-x-6 text-gray-400">
-              <Link href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Cookie Policy
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
